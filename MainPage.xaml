@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CollectionBorderRender"
+    x:Class="CollectionBorderRender.MainPage"
+    x:DataType="local:MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+            <CollectionView ItemsSource="{Binding Items}" MaximumHeightRequest="300">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout HorizontalItemSpacing="8" Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Border Background="Blue" WidthRequest="200" StrokeShape="RoundRectangle, 12">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label 
+                                    Grid.Row="1"
+                                    Text="{Binding}"
+                                    TextColor="White"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontSize="24"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
